@@ -1,3 +1,11 @@
+## Insignias
+
+| Calidad del Código |
+|--------------------|
+| [![Codacy Badge](https://app.codacy.com/project/badge/Grade/b20bd0ebdb52402e8b4499b37def0c5e)](https://app.codacy.com/gh/KoderGoq/Quiosco-Next.js-15.3.4/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade) |
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
