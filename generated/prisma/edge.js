@@ -26,7 +26,7 @@ const {
   Public,
   getRuntime,
   createParam,
-} = require('./runtime/library.js')
+} = require('./runtime/edge.js')
 
 
 const Prisma = {}
@@ -81,7 +81,6 @@ Prisma.NullTypes = {
 
 
 
-  const path = require('path')
 
 /**
  * Enums
@@ -133,7 +132,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\Ferna\\Desktop\\quiosco-next\\prisma\\generated\\prisma",
+      "value": "C:\\Users\\Ferna\\Desktop\\quiosco-next\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -151,10 +150,10 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../../.env",
-    "schemaEnvPath": "../../../.env"
+    "rootEnvPath": null,
+    "schemaEnvPath": "../../.env"
   },
-  "relativePath": "../..",
+  "relativePath": "../../prisma",
   "clientVersion": "6.10.1",
   "engineVersion": "9b628578b3b7cae625e8c927178f15a170e74a9c",
   "datasourceNames": [
@@ -170,48 +169,28 @@ const config = {
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"./generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\n// Modelo para las categorias\nmodel Category {\n  id      Int       @id @default(autoincrement())\n  name    String\n  slug    String\n  product Product[]\n}\n\n// Modelo Relacionado con Category\nmodel Product {\n  id         Int      @id @default(autoincrement())\n  name       String\n  price      Float\n  image      String\n  categoryId Int\n  category   Category @relation(fields: [categoryId], references: [id])\n}\n",
-  "inlineSchemaHash": "540f5e090cb3e5849dd9c248eb2e70f9e3edb8fba9b3046a88475394c1a948d5",
+  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\n// Modelo para las categorias\nmodel Category {\n  id      Int       @id @default(autoincrement())\n  name    String\n  slug    String\n  product Product[]\n}\n\n// Modelo Relacionado con Category\nmodel Product {\n  id         Int      @id @default(autoincrement())\n  name       String\n  price      Float\n  image      String\n  categoryId Int\n  category   Category @relation(fields: [categoryId], references: [id])\n}\n",
+  "inlineSchemaHash": "bf3d15f7415e4e093c58b35631bf4577b57cff13b3e9cb2dff3a7750e45af9eb",
   "copyEngine": true
 }
-
-const fs = require('fs')
-
-config.dirname = __dirname
-if (!fs.existsSync(path.join(__dirname, 'schema.prisma'))) {
-  const alternativePaths = [
-    "prisma/generated/prisma",
-    "generated/prisma",
-  ]
-  
-  const alternativePath = alternativePaths.find((altPath) => {
-    return fs.existsSync(path.join(process.cwd(), altPath, 'schema.prisma'))
-  }) ?? alternativePaths[0]
-
-  config.dirname = path.join(process.cwd(), alternativePath)
-  config.isBundled = true
-}
+config.dirname = '/'
 
 config.runtimeDataModel = JSON.parse("{\"models\":{\"Category\":{\"dbName\":null,\"schema\":null,\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":true,\"isReadOnly\":false,\"hasDefaultValue\":true,\"type\":\"Int\",\"nativeType\":null,\"default\":{\"name\":\"autoincrement\",\"args\":[]},\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"name\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"nativeType\":null,\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"slug\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"nativeType\":null,\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"product\",\"kind\":\"object\",\"isList\":true,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Product\",\"nativeType\":null,\"relationName\":\"CategoryToProduct\",\"relationFromFields\":[],\"relationToFields\":[],\"isGenerated\":false,\"isUpdatedAt\":false}],\"primaryKey\":null,\"uniqueFields\":[],\"uniqueIndexes\":[],\"isGenerated\":false},\"Product\":{\"dbName\":null,\"schema\":null,\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":true,\"isReadOnly\":false,\"hasDefaultValue\":true,\"type\":\"Int\",\"nativeType\":null,\"default\":{\"name\":\"autoincrement\",\"args\":[]},\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"name\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"nativeType\":null,\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"price\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Float\",\"nativeType\":null,\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"image\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"nativeType\":null,\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"categoryId\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":true,\"hasDefaultValue\":false,\"type\":\"Int\",\"nativeType\":null,\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"category\",\"kind\":\"object\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Category\",\"nativeType\":null,\"relationName\":\"CategoryToProduct\",\"relationFromFields\":[\"categoryId\"],\"relationToFields\":[\"id\"],\"isGenerated\":false,\"isUpdatedAt\":false}],\"primaryKey\":null,\"uniqueFields\":[],\"uniqueIndexes\":[],\"isGenerated\":false}},\"enums\":{},\"types\":{}}")
 defineDmmfProperty(exports.Prisma, config.runtimeDataModel)
 config.engineWasm = undefined
 config.compilerWasm = undefined
 
-
-const { warnEnvConflicts } = require('./runtime/library.js')
-
-warnEnvConflicts({
-    rootEnvPath: config.relativeEnvPaths.rootEnvPath && path.resolve(config.dirname, config.relativeEnvPaths.rootEnvPath),
-    schemaEnvPath: config.relativeEnvPaths.schemaEnvPath && path.resolve(config.dirname, config.relativeEnvPaths.schemaEnvPath)
+config.injectableEdgeEnv = () => ({
+  parsed: {
+    DATABASE_URL: typeof globalThis !== 'undefined' && globalThis['DATABASE_URL'] || typeof process !== 'undefined' && process.env && process.env.DATABASE_URL || undefined
+  }
 })
+
+if (typeof globalThis !== 'undefined' && globalThis['DEBUG'] || typeof process !== 'undefined' && process.env && process.env.DEBUG || undefined) {
+  Debug.enable(typeof globalThis !== 'undefined' && globalThis['DEBUG'] || typeof process !== 'undefined' && process.env && process.env.DEBUG || undefined)
+}
 
 const PrismaClient = getPrismaClient(config)
 exports.PrismaClient = PrismaClient
 Object.assign(exports, Prisma)
 
-// file annotations for bundling tools to include these files
-path.join(__dirname, "query_engine-windows.dll.node");
-path.join(process.cwd(), "prisma/generated/prisma/query_engine-windows.dll.node")
-// file annotations for bundling tools to include these files
-path.join(__dirname, "schema.prisma");
-path.join(process.cwd(), "prisma/generated/prisma/schema.prisma")
