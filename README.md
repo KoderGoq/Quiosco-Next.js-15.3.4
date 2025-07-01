@@ -1,8 +1,9 @@
 ## Insignias
 
-| Calidad del Código |
-|--------------------|
-| [![Codacy Badge](https://app.codacy.com/project/badge/Grade/b20bd0ebdb52402e8b4499b37def0c5e)](https://app.codacy.com/gh/KoderGoq/Quiosco-Next.js-15.3.4/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade) |
+| Calidad del Código | Cobertura de Pruebas |
+|--------------------|----------------------|
+| [![Codacy Badge](https://app.codacy.com/project/badge/Grade/b20bd0ebdb52402e8b4499b37def0c5e)](https://app.codacy.com/gh/KoderGoq/Quiosco-Next.js-15.3.4/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade) | [![codecov](https://codecov.io/gh/KoderGoq/Quiosco-Next.js-15.3.4/graph/badge.svg?token=0MJZA3LKO5)](https://codecov.io/gh/KoderGoq/Quiosco-Next.js-15.3.4) |
+
 
 
 

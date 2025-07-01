@@ -21,4 +21,4 @@ const AddProductButton = ({ product }: AddProductButtonProps) => {
   )
 }
 
-export default AddProductButton
+export default AddProductButton;
