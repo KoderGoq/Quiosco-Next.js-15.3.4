@@ -70,4 +70,4 @@ const ProductDetails = ({ item }: ProductDetailsProps) => {
   )
 }
 
-export default ProductDetails
+export default ProductDetails;
