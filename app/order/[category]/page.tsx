@@ -15,7 +15,7 @@ async function getProducts(category: string) {
 }
 
 
-const OrderPage = async ({ params }: { params: { category: string } }) => {
+const OrderPage = async ({ params }: { params: Promise<{ category: string }> }) => {
 
   // Esperar params antes de acceder a sus propiedades
   const { category } = await params;

@@ -16,7 +16,8 @@ export const useStore = create<Store>((set, get) => ({
   addToOrder: (product) => {
 
     // Sacar lo que no nos interesa del state
-    const { categoryId, image, ...data } = product;
+    const { categoryId: _categoryId, image: _image, ...data } = product;
+
     let order: OrderItem[] = [];
 
     if (get().order.find(item => item.id === product.id)) {
@@ -34,7 +35,7 @@ export const useStore = create<Store>((set, get) => ({
     }
 
     // Agregando las ordenes al carrito
-    set((state) => ({
+    set(() => ({
       order
     }))
   },
