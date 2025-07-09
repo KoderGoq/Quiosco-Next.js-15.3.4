@@ -15,7 +15,7 @@ const ImageUpload = ({ image }: { image: string | undefined }) => {
       onSuccess={(result, { widget }) => {
         if (result.event === 'success') {
           widget.close()
-          // @ts-expect-error – necessary due to third-party type issue
+          // @ts-expect-error – este tipo falla al usarlo con vercel
           setImageUrl(result.info?.secure_url);
         }
 

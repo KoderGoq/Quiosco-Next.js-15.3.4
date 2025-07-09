@@ -15,8 +15,9 @@ export const useStore = create<Store>((set, get) => ({
   order: [],
   addToOrder: (product) => {
 
-    // Sacar lo que no nos interesa del state
-    const { categoryId: _categoryId, image: _image, ...data } = product;
+    // Quitar campos sin asignarles una variable
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { categoryId, image, ...data } = product;
 
     let order: OrderItem[] = [];
 
