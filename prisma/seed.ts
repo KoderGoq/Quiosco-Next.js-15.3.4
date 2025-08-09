@@ -1,5 +1,5 @@
 
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from '.././generated/prisma';
 import { categories } from './data/categories';
 import { products } from './data/products';
 
@@ -17,6 +17,7 @@ async function main() {
     console.log(error);
   }
 }
+
 
 
 main()
