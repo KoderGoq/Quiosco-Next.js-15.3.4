@@ -11,6 +11,7 @@ interface Store {
   clearOrder: () => void
 }
 
+
 export const useStore = create<Store>((set, get) => ({
   order: [],
   addToOrder: (product) => {
